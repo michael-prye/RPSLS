@@ -7,7 +7,8 @@ class Ai(Player):
     
     def ai_gesture(self):
       ai_choice = random.choice(self.gestures)
+      print('-----------')
       return ai_choice
 
-test = Ai()
-print(test.ai_gesture())
+# test = Ai()
+# print(test.ai_gesture())
