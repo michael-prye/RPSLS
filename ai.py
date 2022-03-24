@@ -9,6 +9,3 @@ class Ai(Player):
       ai_choice = random.choice(self.gestures)
       print('-----------')
       return ai_choice
-
-# test = Ai()
-# print(test.ai_gesture())

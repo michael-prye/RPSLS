@@ -21,7 +21,3 @@ class Human(Player):
                 return self.gestures[user_input]
             else:
                 print("Number is out of range")
-
-# # test = Human()
-# print(test.my_gesture())
-      
