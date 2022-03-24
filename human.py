@@ -16,7 +16,7 @@ class Human(Player):
             while user_input.isdigit() == False:
                 user_input = input('Enter a valid number: ')
             user_input = int(user_input)
-            if user_input >= 0 and user_input <= len(self.gestures):
+            if user_input >= 0 and user_input < len(self.gestures):
                 wrong_input = True
                 return self.gestures[user_input]
             else:

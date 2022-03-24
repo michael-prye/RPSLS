@@ -1,10 +1,12 @@
 from human import Human
 from ai import Ai
+import time
 class Game:
     def __init__(self):
         pass
     def run_game(self):
         self.display_welcome()
+        time.sleep(1)
         self.display_rules()
 
         wrong_input = False
@@ -15,10 +17,13 @@ class Game:
             user_input = int(user_input)
             if user_input == 1:
                 wrong_input = True
-                self.single_player()
+                winner = self.single_player()
+                self.display_winner(winner)
             elif user_input == 2:
                 wrong_input = True
-                self.multiplayer()
+                winner = self.multiplayer()
+                self.display_winner(winner)
+
 
     def display_welcome(self):
         print('------------------------------------------------------')
@@ -50,6 +55,7 @@ class Game:
                 print('---------')
                 if p1_wins == 2:
                     game_over = True
+                    return 1
             elif x == 2:
                 ai_wins += 1
                 rounds += 1
@@ -58,13 +64,21 @@ class Game:
                 print('---------')
                 if ai_wins == 2:
                     game_over = True
+                    return 2
 
-        if p1_wins > ai_wins:
+        
+    def display_winner(self,p1):
+        if p1 == 1:
             print('------------------------')
             print(f'Player 1 is the Winner')
-        else:
+        elif p1 == 2:
             print('------------------------------')
             print(f"You just got beat by a robot!")
+        else:
+            print('-------')
+            print("Player 2 is the Winner")
+            print('-------')
+
             
     def multiplayer(self):
         p1_wins = 0
@@ -80,11 +94,9 @@ class Game:
             if x == 1:
                 p1_wins += 1
                 rounds += 1
-                print('-------')
-                print("P1 wins")
-                print('-------')
-                if p1_wins == 2:
+            if p1_wins == 2:
                     game_over = True
+                    return 1
             elif x == 2:
                 p2_wins += 1
                 rounds += 1
@@ -93,6 +105,7 @@ class Game:
                 print('-------')
                 if p2_wins == 2:
                     game_over = True
+                    return 3
             else:
                 rounds += 1 
         
