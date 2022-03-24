@@ -1,8 +1,9 @@
 from player import Player
 
 class Human(Player):
-    def __init__(self):
+    def __init__(self, name):
         super().__init__()
+        self.name = name
         
     def my_gesture(self):
         index = 0

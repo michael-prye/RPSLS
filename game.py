@@ -38,7 +38,8 @@ class Game:
         p1_wins = 0
         ai_wins = 0
         rounds = 0
-        player_one = Human()
+        player_one_name = input('Enter player one name: ')
+        player_one = Human(player_one_name)
         player_ai = Ai()
 
         game_over = False
@@ -51,11 +52,11 @@ class Game:
                 p1_wins += 1
                 rounds += 1
                 print('---------')
-                print("P1 wins")
+                print(f"{player_one_name} wins")
                 print('---------')
                 if p1_wins == 2:
                     game_over = True
-                    return 1
+                    return player_one_name
             elif x == 2:
                 ai_wins += 1
                 rounds += 1
@@ -64,28 +65,27 @@ class Game:
                 print('---------')
                 if ai_wins == 2:
                     game_over = True
-                    return 2
+                    return 'AI'
+            else:
+                print('---------')
+                print('Its a tie. Play again')
+                print('---------')
 
         
     def display_winner(self,p1):
-        if p1 == 1:
-            print('------------------------')
-            print(f'Player 1 is the Winner')
-        elif p1 == 2:
-            print('------------------------------')
-            print(f"You just got beat by a robot!")
-        else:
-            print('-------')
-            print("Player 2 is the Winner")
-            print('-------')
-
+        
+        print('------------------------')
+        print(f'{p1} is the Winner')
+        
             
     def multiplayer(self):
         p1_wins = 0
         p2_wins = 0
         rounds = 0
-        player_one = Human()
-        player_two = Human()
+        player_one_name = input('Enter player one name: ')
+        player_two_name = input('Enter player two name: ')
+        player_one = Human(player_one_name)
+        player_two = Human(player_two_name)
         game_over = False
         while game_over == False:
             p1_gesture = player_one.my_gesture()
@@ -94,20 +94,23 @@ class Game:
             if x == 1:
                 p1_wins += 1
                 rounds += 1
+                print(f"{player_one_name} wins")
             if p1_wins == 2:
                     game_over = True
-                    return 1
+                    return player_one_name
             elif x == 2:
                 p2_wins += 1
                 rounds += 1
                 print('-------')
-                print("P2 wins")
+                print(f"{player_two_name} wins")
                 print('-------')
                 if p2_wins == 2:
                     game_over = True
-                    return 3
+                    return player_two_name
             else:
-                rounds += 1 
+                print('---------')
+                print('Its a tie. Play again')
+                print('---------') 
         
         if p1_wins > p2_wins:
             print('-----------------------')
