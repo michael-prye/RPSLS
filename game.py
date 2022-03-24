@@ -57,6 +57,7 @@ class Game:
             if x == 1:
                 p1_wins += 1
                 print('---------')
+                print(f"{p1_gesture} beat {ai_gesture}")
                 print(f"{player_one.name} wins this round")
                 print('---------')
                 if p1_wins == 2:
@@ -65,6 +66,7 @@ class Game:
             elif x == 2:
                 ai_wins += 1
                 print('---------')
+                print(f"{ai_gesture} beat {p1_gesture}")
                 print(f"{ai_1.name} wins this round")
                 print('---------')
                 if ai_wins == 2:
@@ -91,13 +93,17 @@ class Game:
             x = self.get_winner(p1_gesture, p2_gesture)
             if x == 1:
                 p1_wins += 1
+                print('---------')
+                print(f"{p1_gesture} beat {p2_gesture}")
                 print(f"{player_one.name} wins this round")
+                print('---------')
             if p1_wins == 2:
                     game_over = True
                     return player_one.name
             elif x == 2:
                 p2_wins += 1
                 print('-------')
+                print(f"{p2_gesture} beat {p1_gesture}")
                 print(f"{player_two.name} wins this round")
                 print('-------')
                 if p2_wins == 2:
@@ -123,6 +129,7 @@ class Game:
             if x == 1:
                 ai_1_wins += 1
                 print('---------')
+                print(f"{ai_gesture} beat {ai_2_gesture}")
                 print(f"{ai_1.name} wins this round")
                 print('---------')
                 if ai_1_wins == 2:
@@ -131,6 +138,7 @@ class Game:
             elif x == 2:
                 ai_2_wins += 1
                 print('---------')
+                print(f"{ai_2_gesture} beat {ai_gesture}")
                 print(f"{ai_2.name} wins this round")
                 print('---------')
                 if ai_2_wins == 2:
