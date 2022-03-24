@@ -1,10 +1,12 @@
 from player import Player
 
 class Human(Player):
-    def __init__(self, name):
+    def __init__(self):
         super().__init__()
-        self.name = name
-        
+        self.name = ''
+    def get_name(self):
+        self.name = input('Enter your name: ')
+
     def my_gesture(self):
         index = 0
         for gesture in self.gestures:
